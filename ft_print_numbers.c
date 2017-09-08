@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madelapo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/07 16:30:56 by madelapo          #+#    #+#             */
-/*   Updated: 2017/09/07 19:54:28 by madelapo         ###   ########.fr       */
+/*   Created: 2017/09/07 20:24:59 by madelapo          #+#    #+#             */
+/*   Updated: 2017/09/07 20:31:49 by madelapo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int  ft_putchar(char c);
+int ft_putchar(char c);
 
-void ft_print_reverse_alphabet(void)
+void ft_print_numbers(void)
 {
 	int i;
-	i =0;
-	while (i<26)
+	i=0;
+	while(i<10)
 	{
-		ft_putchar('z'-i);
+		ft_putchar('0'+i);
 		i++;
 	}
-}
-
 }
