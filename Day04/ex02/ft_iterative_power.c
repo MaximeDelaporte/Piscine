@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madelapo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/09 09:02:55 by madelapo          #+#    #+#             */
-/*   Updated: 2017/09/10 16:34:21 by madelapo         ###   ########.fr       */
+/*   Created: 2017/09/11 10:46:35 by madelapo          #+#    #+#             */
+/*   Updated: 2017/09/11 12:03:02 by madelapo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int i;
+#include <stdio.h>
 
-	i = 0;
-	while (str[i] != '\0')
+int ft_iterative_power(int nb, int power)
+{
+	int result;
+
+	result = 1;
+	if (nb == 0 || power <= 0)
+		return(0);
+	while ( power != 0)
 	{
-		i++;
+		result *= nb;
+		power--;
 	}
-	return (i);
+	return(result);
 }
 
-char	*ft_strrev(char *str)
+int main(void)
 {
-	int min;
-	int max;
-	int temp;
-
-	min = 0;
-	max = ft_strlen(str) - 1;
-	temp = 0;
-	while (max > min)
-	{
-		temp = str[max];
-		str[max] = str[min];
-		str[min] = temp;
-		max--;
-		min++;
-	}
-	return (str);
+	printf("%d", ft_iterative_power(3, 8));
+	return(0);
 }

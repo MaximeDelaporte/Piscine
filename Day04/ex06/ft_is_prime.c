@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madelapo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/09 09:02:55 by madelapo          #+#    #+#             */
-/*   Updated: 2017/09/10 16:34:21 by madelapo         ###   ########.fr       */
+/*   Created: 2017/09/11 20:05:27 by madelapo          #+#    #+#             */
+/*   Updated: 2017/09/11 20:19:21 by madelapo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+#include <stdio.h>
+
+int		ft_is_prime(int nb)
 {
 	int i;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = 3;
+	if (nb < 2)
 	{
-		i++;
+		return 0;
 	}
-	return (i);
+	if (nb == 2 ) 
+{
+	return 1;
+}
+	if (nb % 2 == 0)
+{	
+	return 0;
+}
+	while ((i*i) <= nb)
+	{
+		if (nb % i == 0)
+		{
+			return(0);
+		}
+		i+=2;
+	}
+	return 1;
 }
 
-char	*ft_strrev(char *str)
-{
-	int min;
-	int max;
-	int temp;
-
-	min = 0;
-	max = ft_strlen(str) - 1;
-	temp = 0;
-	while (max > min)
-	{
-		temp = str[max];
-		str[max] = str[min];
-		str[min] = temp;
-		max--;
-		min++;
-	}
-	return (str);
+int		main(void)
+{	
+	printf("%d", ft_is_prime(23));
+	return 0;
 }

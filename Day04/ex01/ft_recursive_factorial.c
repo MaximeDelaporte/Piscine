@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madelapo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/09 09:02:55 by madelapo          #+#    #+#             */
-/*   Updated: 2017/09/10 16:34:21 by madelapo         ###   ########.fr       */
+/*   Created: 2017/09/11 10:27:45 by madelapo          #+#    #+#             */
+/*   Updated: 2017/09/11 12:50:34 by madelapo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+int ft_recursive_factorial(int nb)
 {
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
+	if (nb == 0 || nb == 1)
 	{
-		i++;
+		return(0);
 	}
-	return (i);
-}
-
-char	*ft_strrev(char *str)
-{
-	int min;
-	int max;
-	int temp;
-
-	min = 0;
-	max = ft_strlen(str) - 1;
-	temp = 0;
-	while (max > min)
+	if (nb > 1)
 	{
-		temp = str[max];
-		str[max] = str[min];
-		str[min] = temp;
-		max--;
-		min++;
+		return(nb = nb * ft_recursive_factorial(nb - 1));
 	}
-	return (str);
+	return(nb);
 }

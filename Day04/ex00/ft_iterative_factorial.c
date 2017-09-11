@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madelapo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/09 09:02:55 by madelapo          #+#    #+#             */
-/*   Updated: 2017/09/10 16:34:21 by madelapo         ###   ########.fr       */
+/*   Created: 2017/09/10 20:40:29 by madelapo          #+#    #+#             */
+/*   Updated: 2017/09/11 14:53:04 by madelapo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int i;
+int ft_iterative_factorial(int nb)
+{ 
+	int fact;
+	int neg;
 
-	i = 0;
-	while (str[i] != '\0')
+	fact = nb;
+	if (nb < 0)
 	{
-		i++;
+		nb = -nb;
 	}
-	return (i);
-}
-
-char	*ft_strrev(char *str)
-{
-	int min;
-	int max;
-	int temp;
-
-	min = 0;
-	max = ft_strlen(str) - 1;
-	temp = 0;
-	while (max > min)
+	if (nb == 0 || nb == 1)
+	return(1);
+	if (nb > 12)
+		return(0);
+	while ( nb > 1)
 	{
-		temp = str[max];
-		str[max] = str[min];
-		str[min] = temp;
-		max--;
-		min++;
+		nb = nb -1;
+		fact = fact * nb;
 	}
-	return (str);
+	return(fact);
 }

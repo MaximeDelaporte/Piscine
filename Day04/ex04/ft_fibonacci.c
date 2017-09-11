@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madelapo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/09 09:02:55 by madelapo          #+#    #+#             */
-/*   Updated: 2017/09/10 16:34:21 by madelapo         ###   ########.fr       */
+/*   Created: 2017/09/11 12:39:35 by madelapo          #+#    #+#             */
+/*   Updated: 2017/09/11 14:37:01 by madelapo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int i;
+#include <stdio.h>
 
-	i = 0;
-	while (str[i] != '\0')
+int ft_fibonacci(int index)
+{
+	if (index < 0)
 	{
-		i++;
+		return(-1);
 	}
-	return (i);
+	if(index == 0)
+	{
+		return(0);
+	}
+	if (index == 1)
+	{
+		return(1);
+	}
+	return ft_fibonacci(index - 1) + ft_fibonacci(index - 2);
 }
 
-char	*ft_strrev(char *str)
+int main(void)
 {
-	int min;
-	int max;
-	int temp;
-
-	min = 0;
-	max = ft_strlen(str) - 1;
-	temp = 0;
-	while (max > min)
-	{
-		temp = str[max];
-		str[max] = str[min];
-		str[min] = temp;
-		max--;
-		min++;
-	}
-	return (str);
+	printf("%d", ft_fibonacci(5));
 }

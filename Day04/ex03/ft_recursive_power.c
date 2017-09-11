@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madelapo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/09 09:02:55 by madelapo          #+#    #+#             */
-/*   Updated: 2017/09/10 16:34:21 by madelapo         ###   ########.fr       */
+/*   Created: 2017/09/11 12:04:18 by madelapo          #+#    #+#             */
+/*   Updated: 2017/09/11 12:22:00 by madelapo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int i;
+#include <stdio.h>
 
-	i = 0;
-	while (str[i] != '\0')
+int ft_recursive_power(int nb, int power)
+{
+	if ( power == 0 || nb == 0)
 	{
-		i++;
+		return(0);
 	}
-	return (i);
+	if (power > 1)
+	{
+		return(nb = nb * ft_recursive_power(nb, power - 1));
+	}
+	return(nb);
 }
-
-char	*ft_strrev(char *str)
+int main()
 {
-	int min;
-	int max;
-	int temp;
-
-	min = 0;
-	max = ft_strlen(str) - 1;
-	temp = 0;
-	while (max > min)
-	{
-		temp = str[max];
-		str[max] = str[min];
-		str[min] = temp;
-		max--;
-		min++;
-	}
-	return (str);
+	printf("%d", ft_recursive_power(3, 8));
+	return(0);
 }
