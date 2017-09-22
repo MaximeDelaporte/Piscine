@@ -1,0 +1,5 @@
+Credentials cache: API:D46BB768-5962-44A5-A8E7-182B2FD016D3
+        Principal: madelapo@LE-101.FR
+
+  Issued                Expires               Principal
+Sep  8 11:54:50 2017  Sep 15 11:54:42 2017  krbtgt/LE-101.FR@LE-101.FR
